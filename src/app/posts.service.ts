@@ -11,4 +11,7 @@ export class PostsService {
     return this.http.get('api/posts').map(res => res.json());
   }
 
+  deletePost(id) {
+    return this.http.delete('api/posts/' + id).map(res => res.json());
+  }
 }

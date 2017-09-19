@@ -10,5 +10,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/posts', post.seeResult);
+router.delete('/posts/:id', post.delete);
 
 module.exports = router;

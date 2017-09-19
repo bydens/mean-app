@@ -12,5 +12,14 @@ module.exports = {
             .catch(err => {
                 res.status(504).send(err);
             })
+    },
+    delete(req, res) {        
+        Post.find({_id: req.params.id})
+            .remove(() => {
+                res.status(200).json(req.params.id);
+            })
+            .catch(err => {
+                console.log('error', err);
+            })
     }
 }

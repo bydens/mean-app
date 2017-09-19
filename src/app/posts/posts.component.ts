@@ -14,9 +14,13 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.postsService.getAllPosts().subscribe(posts => {
-      console.log(posts);
+      // console.log(posts);
       this.posts = posts;
     })
   }
-
+  deletePost(data) {
+    this.postsService.deletePost(data._id).subscribe(res => {
+      this.posts.splice(this.posts.findIndex(itemPost => itemPost._id == res), 1);
+    });
+  }
 }
